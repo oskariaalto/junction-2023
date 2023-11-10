@@ -50,7 +50,7 @@ const UserData: React.FC<UserDataProps> = ({ userInfo }) => {
           <input
             type="text"
             placeholder="John Doe"
-            className="input input-xs text-sm text-primary"
+            className="input input-xs text-sm text-primary w-full"
             value={userInfo.urgency}
             readOnly
           />
@@ -60,7 +60,7 @@ const UserData: React.FC<UserDataProps> = ({ userInfo }) => {
           <input
             type="text"
             placeholder="John Doe"
-            className="input input-xs text-sm text-primary"
+            className="input input-xs text-sm text-primary w-full"
             value={userInfo.currentHeating}
             readOnly
           />
