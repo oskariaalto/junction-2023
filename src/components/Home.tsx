@@ -20,6 +20,7 @@ const Home = () => {
     <div className="container mx-auto p-4">
       <div className="flex flex-col items-start">
         <h1 className="text-3xl font-bold">Status</h1>
+
         
       </div>
       <div className="container mx-auto p-4 flex flex-col items-center">
