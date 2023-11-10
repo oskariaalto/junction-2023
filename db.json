@@ -1,0 +1,25 @@
+{
+  "calculatedInfo": [
+    {
+      "id": 1,
+      "heatingSolution": "Heat pump",
+      "averagePrice": 1500,
+      "annualSavings": 600,
+      "CO2Savings": 3.0
+    },
+    {
+      "id": 2,
+      "heatingSolution": "Heat Water pump",
+      "averagePrice": 1400,
+      "annualSavings": 550,
+      "CO2Savings": 2.7
+    },
+    {
+      "id": 3,
+      "heatingSolution": "Geothermal heating",
+      "averagePrice": 1600,
+      "annualSavings": 700,
+      "CO2Savings": 3.5
+    }
+  ]
+}

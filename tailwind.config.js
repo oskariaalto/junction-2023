@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import daisyUI from 'daisyui';
+import daisyui from 'daisyui';
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}",
   "./index.html"],
@@ -19,9 +19,9 @@ export default {
     }
 
   },
-  plugins: [daisyUI],
-  daisyUI: {
-    themes: false // This enables the full theme
+  plugins: [daisyui],
+  daisyui: {
+    themes: ["forest"]  // This enables the full theme
   }
 }
 
