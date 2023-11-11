@@ -11,14 +11,21 @@ import {
   useLoaderData,
   Outlet,
 } from "react-router-dom";
-import { getCalculatedValues } from "./controllers/quota";
-import { getOffers } from "./controllers/user";
-import { CalculatedInfo, HeatingSolutionOffers } from "./types";
+import { getHeatingOffers, getOffers, getOffer } from "./controllers/offers";
+import { HeatingSolutionOffers, SolutionOffers, OfferResponse } from "./types";
 
 const NavBarWrapper = () => {
   return (
     <div>
       <Navigation />
+      <Outlet />
+    </div>
+  );
+};
+
+const NewOfferWrapper = () => {
+  return (
+    <div>
       <Outlet />
     </div>
   );
@@ -30,22 +37,9 @@ const router = createBrowserRouter([
     element: <NavBarWrapper />,
     children: [
       {
-        path: "/calculations",
-        loader: async () => {
-          const calculatedValues: Array<CalculatedInfo> = await getCalculatedValues();
-          return { calculatedValues };
-        },
-        Component() {
-          const data = useLoaderData() as {
-            calculatedValues: Array<CalculatedInfo>;
-          };
-          return <Quota calculatedValues={data.calculatedValues} />;
-        },
-      },
-      {
         path: "/",
         loader: async () => {
-          const currentOffers: HeatingSolutionOffers[] = await getOffers();
+          const currentOffers: HeatingSolutionOffers[] = await getHeatingOffers();
           return { currentOffers };
         },
         Component() {
@@ -62,31 +56,51 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "/offers",
-        loader: async () => {
-          const currentOffers: HeatingSolutionOffers = await getOffers();
+        path: "/offers/:id/outstanding",
+        loader: async ({ params }) => {
+          const currentOffers: SolutionOffers = await getOffers(
+            params.id || ""
+          );
           return { currentOffers };
         },
         Component() {
           const data = useLoaderData() as {
-            currentOffers: HeatingSolutionOffers[];
+            currentOffers: SolutionOffers;
           };
-          return <OfferTable solution={data.currentOffers[0]} />;
+          return <OfferTable solution={data.currentOffers} />;
         },
       },
       {
         path: "/offers/:id",
-        loader: async () => {
-          const currentOffers: HeatingSolutionOffers = await getOffers();
-          console.log(currentOffers);
-          return { currentOffers };
+        loader: async ({ params }) => {
+          const offer = await getOffer(params.id || "");
+          return { offer };
         },
         Component() {
           const data = useLoaderData() as {
-            currentOffers: HeatingSolutionOffers[];
+            offer: OfferResponse;
           };
-          return <Offer offer={data.currentOffers[0].offers[0]} />;
+          console.log(data);
+          return <Offer offer={data.offer} />;
         },
+      },
+      {
+        path: "/newoffer",
+        element: <NewOfferWrapper />,
+        children: [
+          {
+            path: "/newoffer/calculations",
+            Component() {
+              return <Quota />;
+            },
+          },
+          {
+            path: "/newoffer",
+            Component() {
+              return <UserProfile showSubmitButton={true} />;
+            },
+          },
+        ],
       },
     ],
   },
@@ -94,7 +108,10 @@ const router = createBrowserRouter([
 
 const App = () => {
   return (
-    <div data-theme="forest" className="bg-gradient-to-r from-green-200 to-green-400 min-h-screen">
+    <div
+      data-theme="forest"
+      className="bg-gradient-to-r from-green-200 to-green-400 min-h-screen"
+    >
       <DataProvider>
         <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
       </DataProvider>

@@ -32,7 +32,7 @@ export const createQuerie = async (data: UserInputInfo) => {
   }
   try{
     const response = await axios.post(baseUrl+'/queries', body)
-    //console.log(response.data)
+    //console.log(response)
     return response.data
   } catch(error){
     console.log(error)
