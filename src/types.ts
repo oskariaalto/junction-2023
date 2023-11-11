@@ -46,8 +46,69 @@ export interface OfferInfo {
 }
 
 export interface HeatingSolutionOffers {
+  id: number;
+  company_name: string;
+  answers: Answers;
+}
+
+interface Answers{
+  answered: number;
+  total: number;
+}
+
+export interface SolutionOffers{
+  id: number;
+  quotas: SolutionOffer[];
+}
+
+export interface SolutionOffer{
+  id: number;
+  company: Company;
+}
+
+interface Company{
+  contact_person: ContactPerson;
   name: string;
-  offers: OfferInfo[];
+  price: number;
+  annual_savings: number;
+  annual_emission_savings: number;
+  estimated_payback_time: number;
+  address: Address;
+}
+
+interface ContactPerson {
+  name: string;
+  email: string;
+  phone: string;
+}
+
+interface Address {
+  street: string;
+  city: string;
+  postal_code: string;
+}
+
+interface Quota {
+  name: string;
+  product: string;
+  price: number;
+  due_date: string;
+  annual_savings: number;
+  annual_emission_savings: number;
+  estimated_payback_time: number;
+}
+
+interface Message {
+  id: number;
+  user: string;
+  message: string;
+}
+
+export interface OfferResponse {
+  id: number;
+  company: Company;
+  quota: Quota;
+  messages: Message[];
 }
 
 export interface AppState {
