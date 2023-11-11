@@ -24,10 +24,13 @@ const QuotaTableRow: React.FC<QuotaTableRowProps> = ({ offer }) => {
 const QuotaTable: React.FC<QuotaTableProps> = ({ solution }) => {
   console.log(solution);
   return (
-    <div className="flex justify-center pt-2">
-      <div className="card w-5/6 bg-neutral p-3">
-        <div className="card-title text-secondary">{solution.name}</div>
-        <div className="card-body">
+    <div className="flex justify-center h-screen">
+      <div className="card w-5/6 bg-neutral p-3 m-auto flex justify-left">
+        <div className="card-title text-secondary py-4 px-6">{solution.name}</div>
+        <p className="text-primary px-6 py-0">
+          Here we have concluded the offers we have got form the category {solution.name}s. You can also access the induvidual offers by clicking them.
+        </p>
+        <div className="card-body p-4">
           <table className="table w-full">
             <thead className="text-secondary">
               <tr>

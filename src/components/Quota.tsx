@@ -11,11 +11,8 @@ const CalculationsTable: React.FC<CalculationsTableProps> = ({
   calculatedValues,
 }) => {
   return (
-    <div className="flex p-2 gap-3">
-      <div className="w-1/4">
-        <UserProfile showSubmitButton={false} />
-      </div>
-      <div className="w-3/4">
+    <div className="flex p-2 gap-3 justify-center h-screen">
+      <div className="w-3/4 m-auto">
         <Calculations calculatedValues={calculatedValues} />
       </div>
     </div>

@@ -55,9 +55,14 @@ const Calculations: React.FC<CalculationsProps> = () => {
   const handleClick = () => {};
 
   return (
-    <div className="card w-full bg-neutral p-2">
-      <p className="card-title text-accent text-2xl px-4 py-3">Calculations</p>
-      <div className="card-body overflow-x-auto">
+    <div className="card w-full bg-neutral p-2 flex justify-center shadow-md">
+      <p className="card-title text-secondary text-2xl px-4 py-4">Calculations</p>
+      <p className="text-primary px-4 py-0">
+          Here you can find different options to enhance the energy performance of your house compared. 
+          The estimates are calculated based on the facts you have provided. You can check and modify your information on your profile.
+      </p>
+      <div className="card-body overflow-x-auto px-4 py-4">
+        
         <table className="table w-full text-primary">
           <thead>
             <tr className="text-secondary">

@@ -94,7 +94,7 @@ const router = createBrowserRouter([
 
 const App = () => {
   return (
-    <div data-theme="forest">
+    <div data-theme="forest" className="bg-gradient-to-r from-green-200 to-green-400 min-h-screen">
       <DataProvider>
         <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
       </DataProvider>
