@@ -45,7 +45,8 @@
           "heatingSolution": "Solar Panels",
           "sent": true,
           "id": 101,
-          "received": false
+          "received": false,
+          "emailConversation": "Moi\n\n\n\n\n\n\nMoikka\n\n\n\n\n"
         },
         {
           "company": "EcoComfort",

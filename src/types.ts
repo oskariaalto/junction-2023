@@ -31,6 +31,8 @@ export interface OfferInfo {
   id: number;
   received: boolean;
   paybackTime: number;
+  emailConversation: string;
+  product: string;
 }
 
 export interface HeatingSolutionOffers {
