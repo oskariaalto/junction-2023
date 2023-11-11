@@ -32,6 +32,35 @@ const UserProfile: React.FC<UserDataProps> = ({
           </div>
           <div className="flex gap-2 w-full">
             <div className="">
+              <p className="text-xs text-secondary">Postal code</p>
+              <input
+                type="text"
+                placeholder="Postal code"
+                className="input input-xs text-sm text-primary w-full"
+                value={userInfo.postalCode}
+              />
+            </div> 
+            <div className="">
+              <p className="text-xs text-secondary">City</p>
+              <input
+                type="text"
+                placeholder="City"
+                className="input input-xs text-sm text-primary w-full"
+                value={userInfo.city}
+              />
+            </div> 
+          </div>
+          <div className="flex gap-2 w-full">
+            <div className="">
+              <p className="text-xs text-secondary">Floor surface area (sqm)</p>
+              <input
+                type="number"
+                placeholder="Your floor surface area (sqm)"
+                className="input input-xs text-sm text-primary w-full"
+                value={userInfo.houseSqm}
+              />
+            </div> 
+            <div className="">
               <p className="text-xs text-secondary">Occupants</p>
               <input
                 type="number"
@@ -39,7 +68,11 @@ const UserProfile: React.FC<UserDataProps> = ({
                 className="input input-xs text-sm text-primary w-full"
                 value={userInfo.occupants}
               />
-            </div>
+            </div> 
+          </div>
+
+           
+          <div className="flex gap-2 w-full">
             <div className="">
               <p className="text-xs text-secondary">Budget</p>
               <input
@@ -49,8 +82,6 @@ const UserProfile: React.FC<UserDataProps> = ({
                 value={userInfo.budget}
               />
             </div>
-          </div>
-          <div className="flex gap-2 w-full">
             <div className="">
               <p className="text-xs text-secondary">Timeframe</p>
               <input
@@ -60,9 +91,11 @@ const UserProfile: React.FC<UserDataProps> = ({
                 value={userInfo.urgency}
               />
             </div>
-            <div className="block">
+          </div>
+
+          <div className="block">
               <p className="text-xs text-secondary">Current heating solution</p>
-              <select className="select select-xs text-primary">
+              <select className="select select-xs text-primary w-full">
                 <option value="direct electric heating">
                   Direct electric heating
                 </option>
@@ -71,7 +104,6 @@ const UserProfile: React.FC<UserDataProps> = ({
                 <option value="district heating">District heating</option>
               </select>
             </div>
-          </div>
 
           <div className="block">
             <p className="text-xs text-secondary">Description</p>
