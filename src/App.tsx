@@ -4,6 +4,7 @@ import UserProfile from "./components/UserProfile";
 import Navigation from "./components/Navigation";
 import OfferTable from "./components/Offers";
 import Offer from "./components/Offer";
+import { DataProvider } from "./context/DataContext";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -99,7 +100,9 @@ const router = createBrowserRouter([
 const App = () => {
   return (
     <div data-theme="forest">
-      <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
+      <DataProvider>
+        <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
+      </DataProvider>
     </div>
   );
 };

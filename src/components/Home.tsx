@@ -6,9 +6,11 @@ const sampleUserData = {
   name: "John Doe",
   houseSqm: 150,
   currentHeating: "Oil",
+
   address: "123 Main St",
   postalCode: "02150",
   city: "Espoo",
+
   occupants: 3,
   budget: 10000,
   urgency: 1, // Assuming 1 represents low urgency

@@ -1,9 +1,10 @@
 import UserData from "./UserData";
 import Calculations from "./Calculations";
 import React from "react";
-import { UserInputInfo, CalculatedInfo } from "../types";
+import { CalculatedInfo } from "../types";
+import { useLocation } from "react-router-dom";
 
-const sampleUserData: UserInputInfo = {
+const sampleUserData = {
   name: "John Doe",
   houseSqm: 150,
   currentHeating: "Oil",
@@ -13,7 +14,7 @@ const sampleUserData: UserInputInfo = {
   occupants: 3,
   budget: 10000,
   urgency: 1, // Assuming 1 represents low urgency
-  description: "Mahtava",
+  description: "200 neliöinen iso talo keskellä metsää\nhyvin vanha",
 };
 
 interface CalculationsTableProps {
@@ -23,6 +24,8 @@ interface CalculationsTableProps {
 const CalculationsTable: React.FC<CalculationsTableProps> = ({
   calculatedValues,
 }) => {
+  const location = useLocation();
+  console.log(location.state);
   return (
     <div className="flex p-2 gap-3">
       <div className="w-1/4">

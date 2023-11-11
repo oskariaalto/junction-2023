@@ -18,7 +18,7 @@ const UserData: React.FC<UserDataProps> = ({ userInfo }) => {
             type="text"
             placeholder="John Doe"
             className="input input-xs text-sm text-primary w-full"
-            value={userInfo.address}
+            value={userInfo.street}
             readOnly
           />
         </div>
