@@ -4,7 +4,6 @@ import { AppState, Action } from "../types";
 export const combinedReducer = (state: AppState, action: Action): AppState => {
   switch (action.type) {
     case "UPDATE_USER_INFO_STR":
-      console.log(state.userData)
       return { ...state, userData:{
         ...state.userData,
         [action.payload.type||""]: action.payload.strValue
@@ -14,7 +13,20 @@ export const combinedReducer = (state: AppState, action: Action): AppState => {
           ...state.userData,
           [action.payload.type||""]: action.payload.numValue} };
     case "SET_CALCULATED_DATA":
+      console.log(action.payload)
       return { ...state, calculatedData: action.payload.calculatedData || [] };
+    case "UPDATE_CALCULATED_DATA":
+      if ((action.payload.index||0) >= 0 && (action.payload.index||0)< state.calculatedData.length) {
+        const updatedCalculatedData = [...state.calculatedData];
+        const updatedItem = {
+          ...updatedCalculatedData[action.payload.index||0],
+          [action.payload.type||""]: action.payload.numValue || action.payload.strValue || action.payload.boolValue
+        };
+        updatedCalculatedData[action.payload.index||0] = updatedItem;
+        return { ...state, calculatedData: updatedCalculatedData };
+      } else{
+        return state;
+      }
     default:
       return state;
   }

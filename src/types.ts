@@ -18,6 +18,16 @@ export interface CalculatedInfo {
   averagePrice: number;
   annualSavings: number;
   CO2Savings: number;
+  roi: number;
+}
+
+export interface CalculatedResponse {
+name: string;
+roi: number;
+total_co2_reduction: number;
+total_savings: number;
+price: number;
+selected:boolean;
 }
 
 export interface OfferInfo {
@@ -42,7 +52,7 @@ export interface HeatingSolutionOffers {
 
 export interface AppState {
   userData: UserInputInfo;
-  calculatedData: CalculatedInfo[];
+  calculatedData: CalculatedResponse[];
   offers: HeatingSolutionOffers[];
 }
 
@@ -55,5 +65,7 @@ export interface Payload {
   type?: string;
   numValue?: number;
   strValue?: string;
-  calculatedData?: CalculatedInfo[];
+  calculatedData?: CalculatedResponse[];
+  boolValue?: boolean;
+  index?: number;
 }
