@@ -6,9 +6,11 @@ const sampleUserData = {
   name: "John Doe",
   houseSqm: 150,
   currentHeating: "Oil",
-  street: "123 Main St",
-  postalCode: "12345",
-  city: "Helsinki",
+
+  address: "123 Main St",
+  postalCode: "02150",
+  city: "Espoo",
+
   occupants: 3,
   budget: 10000,
   urgency: 1, // Assuming 1 represents low urgency
@@ -64,10 +66,24 @@ const Home: React.FC<HomeComponentProps> = ({ offers }) => {
           </div>
         </div>
       </div>
-      <div className="w-1/3">
-        {show && (
-          <UserProfile userInfo={sampleUserData} showSubmitButton={true} />
-        )}
+      <div className="w-1/4 p-2.5">
+
+        <div className="card collapse-arrow shadow-lg bg-neutral w-full m-6 p-4">
+          <div className="card-title text-secondary w-full flex justify-between">
+            <span className="text-xl">
+              My information
+            </span>
+          </div>
+        </div>
+
+        <div className="card collapse-arrow shadow-lg bg-neutral w-full m-6  p-4">
+          <div className="card-title text-secondary w-full flex justify-between">
+            <span className="text-xl">
+              Explore new options
+            </span>
+          </div>
+        </div>
+
       </div>
     </div>
   );

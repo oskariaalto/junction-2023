@@ -3,7 +3,7 @@ import daisyui from 'daisyui';
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}",
   "./index.html"],
-  theme: {
+  /*theme: {
     extend: {
       colors: {               
         primary: "#1eb854",                  
@@ -18,10 +18,37 @@ export default {
     },
     }
 
-  },
+  },*/
   plugins: [daisyui],
+  //daisyui: {
+  //  themes: ["forest"]  // This enables the full theme
+  //}
   daisyui: {
-    themes: ["forest"]  // This enables the full theme
-  }
+    themes: [
+      {
+        mytheme: {
+          
+          "primary": "#4CAF50",
+                   
+          "secondary": "#1E272E",
+                   
+          "accent": "#FF6F61",
+                   
+          "neutral": "#F9F9F9",
+          
+          "base-100": "#D2E8D8",
+                   
+          "info": "#cae2e8",
+                   
+          "success": "#dff2a1",
+                   
+          "warning": "#f7e488",
+                   
+          "error": "#f2b6b5",
+        },
+      },
+    ],
+  },
+
 }
 
