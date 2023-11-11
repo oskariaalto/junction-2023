@@ -111,7 +111,7 @@ const App = () => {
   return (
     <div
       data-theme="forest"
-      className="bg-gradient-to-r from-green-200 to-green-400 min-h-screen"
+      className="bg-gradient-to-r from-green-200 to-green-400 min-h-screen h-full"
     >
       <DataProvider>
         <RouterProvider router={router} fallbackElement={<LoadingSpinner />} />

@@ -54,9 +54,11 @@ const UserProfile: React.FC<UserDataProps> = ({ showSubmitButton }) => {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="w-1/3 items-center">
+
         <div className="card bg-neutral w-full p-2 shadow-xl">
           <h1 className="card-title text-secondary font-bold text-3xl px-6 pt-4 flex justify-center">
-            {state.userData.name || "John Doe"}
+            Input your data
+
           </h1>
           <div className="card-body px-4 pb-4">
             <div className="w-full">
