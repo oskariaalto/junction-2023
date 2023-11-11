@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import LoadingSpinner from "./LoadingSpinner";
+import React, { useState, useEffect } from "react";
 import { HeatingSolutionOffers } from "../types";
 import { Link } from "react-router-dom";
 
@@ -29,7 +30,20 @@ const OfferCard: React.FC<OfferCardProps> = ({ offerInfo }) => {
 
 const Home: React.FC<HomeComponentProps> = ({ offers }) => {
   const [show, setShow] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    // Simulate loading data or other actions
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 200); // Simulate a 2-second loading time
+  }, []);
   return (
+    <div>
+    {isLoading ? (
+        <div className="h-screen w-screen flex justify-center items-center">
+        <LoadingSpinner />
+        </div>
+      ) : (
     <div className="flex justify-center h-screen">
       <div className="w-2/3 m-auto">
         <div className="container mx-auto p-4">
@@ -56,6 +70,9 @@ const Home: React.FC<HomeComponentProps> = ({ offers }) => {
         </div>
       </div>
     </div>
+      )}
+    </div>
+      
   );
 };
 
