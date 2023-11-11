@@ -1,29 +1,29 @@
 import React, { useContext } from "react";
-import { UserInputInfo, Payload } from "../types";
+import { Payload, CalculatedResponse } from "../types";
 import { Link } from "react-router-dom";
 import { DataContext } from "../context/DataContext";
 import { createQuerie } from "../controllers/quota";
 
 interface UserDataProps {
-  userInfo: UserInputInfo;
   showSubmitButton: boolean;
 }
 
-const UserProfile: React.FC<UserDataProps> = ({
-  userInfo,
-  showSubmitButton,
-}) => {
-  const handleSubmission = async () => {
-    console.log("Submitting");
-
-    const response = await createQuerie(state.userData);
-
-    dispatch({
-      type: "UPDATE_USER_INFO",
-      payload: { calculatedData: response.data },
-    });
-  };
+const UserProfile: React.FC<UserDataProps> = ({ showSubmitButton }) => {
   const { state, dispatch } = useContext(DataContext);
+  const handleSubmission = async () => {
+    const response = await createQuerie(state.userData);
+    //console.log(response);
+    const data = response.summary.data.map((sum: CalculatedResponse) => ({
+      ...sum,
+      price: 1000,
+      selected: false,
+    }));
+    dispatch({
+      type: "SET_CALCULATED_DATA",
+      payload: { calculatedData: data },
+    });
+    //console.log(state.calculatedData);
+  };
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -214,7 +214,6 @@ const UserProfile: React.FC<UserDataProps> = ({
               to="/calculations"
               className="btn btn-primary btn-wide"
               onClick={handleSubmission}
-              state={userInfo}
             >
               Save new offer
             </Link>
