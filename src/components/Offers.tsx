@@ -32,6 +32,7 @@ const QuotaTable: React.FC<QuotaTableProps> = ({ solution }) => {
     <div className="flex justify-center h-screen">
       <div className="card w-5/6 bg-neutral p-3 m-auto flex justify-left">
         <div className="card-title text-secondary py-4 px-6"></div>
+
         <p className="text-primary px-6 py-0">
           Here we have concluded the offers we have got form the category. You
           can also access the induvidual offers by clicking them.
