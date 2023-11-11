@@ -12,8 +12,8 @@ import {
   Outlet,
 } from "react-router-dom";
 import { getCalculatedValues } from "./controllers/quota";
-import { getUser, getOffers } from "./controllers/user";
-import { CalculatedInfo, UserInputInfo, HeatingSolutionOffers } from "./types";
+import { getOffers } from "./controllers/user";
+import { CalculatedInfo, HeatingSolutionOffers } from "./types";
 
 const NavBarWrapper = () => {
   return (
@@ -57,13 +57,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        loader: async () => {
-          const user: UserInputInfo = await getUser();
-          return { user };
-        },
         Component() {
-          const data = useLoaderData() as { user: UserInputInfo };
-          return <UserProfile userInfo={data.user} showSubmitButton={false} />;
+          return <UserProfile showSubmitButton={false} />;
         },
       },
       {

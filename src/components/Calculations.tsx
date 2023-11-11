@@ -1,24 +1,22 @@
-import React, { useState } from "react";
-import { CalculatedInfo } from "../types";
+import React, { useContext } from "react";
+import { CalculatedInfo, CalculatedResponse } from "../types";
+import { DataContext } from "../context/DataContext";
 
 interface CalculationsProps {
   calculatedValues: Array<CalculatedInfo>;
 }
 
 interface CalculatedColumnProps {
-  calculatedData: CalculatedInfo;
+  calculatedData: CalculatedResponse;
   onCheckboxChange: (isChecked: boolean, index: number) => void;
   index: number;
 }
-
 const TableColumn: React.FC<CalculatedColumnProps> = ({
   calculatedData,
   onCheckboxChange,
   index,
 }) => {
-  const [selected, setSelected] = useState(false);
   const handleCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelected(event.target.checked);
     onCheckboxChange(event.target.checked, index);
   };
   return (
@@ -27,29 +25,34 @@ const TableColumn: React.FC<CalculatedColumnProps> = ({
         <input
           type="checkbox"
           className="checkbox checkbox-primary"
-          checked={selected}
+          checked={calculatedData.selected}
           onChange={handleCheck}
         />
       </td>
-      <td>{calculatedData.heatingSolution}</td>
-      <td>{calculatedData.averagePrice}</td>
-      <td>{calculatedData.annualSavings}</td>
-      <td>{calculatedData.CO2Savings}</td>
+      <td>
+        {calculatedData.name === "heatpump"
+          ? "Heat Pump"
+          : calculatedData.name === "geothermal"
+          ? "Geothermal Heat"
+          : "Water Heat Pump"}
+      </td>
+      <td>{calculatedData.price}</td>
+      <td>{calculatedData.total_savings}</td>
+      <td>{calculatedData.total_co2_reduction}</td>
     </tr>
   );
 };
 
-const Calculations: React.FC<CalculationsProps> = ({ calculatedValues }) => {
-  const [selected, setSelected] = useState(
-    new Array(calculatedValues.length).fill(false)
-  );
-
+const Calculations: React.FC<CalculationsProps> = () => {
+  const { state, dispatch } = useContext(DataContext);
+  //console.log(state.calculatedData);
   const handleCheckboxChange = (isChecked: boolean, index: number) => {
-    const newSelected = [...selected];
-    newSelected[index] = isChecked;
-    setSelected(newSelected);
-    console.log(newSelected);
+    dispatch({
+      type: "UPDATE_CALCULATED_DATA",
+      payload: { boolValue: isChecked, index, type: "selected" },
+    });
   };
+  const handleClick = () => {};
 
   return (
     <div className="card w-full bg-neutral p-2">
@@ -66,7 +69,7 @@ const Calculations: React.FC<CalculationsProps> = ({ calculatedValues }) => {
             </tr>
           </thead>
           <tbody>
-            {calculatedValues.map((calculatedData, index) => (
+            {state.calculatedData.map((calculatedData, index) => (
               <TableColumn
                 key={index}
                 index={index}
@@ -78,7 +81,9 @@ const Calculations: React.FC<CalculationsProps> = ({ calculatedValues }) => {
         </table>
       </div>
       <div className="flex justify-end pr-3">
-        <button className="btn btn-primary">Get quotas</button>
+        <button className="btn btn-primary" onClick={handleClick}>
+          Get quotas
+        </button>
       </div>
     </div>
   );
