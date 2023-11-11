@@ -28,6 +28,7 @@ total_co2_reduction: number;
 total_savings: number;
 price: number;
 selected:boolean;
+id: number;
 }
 
 export interface OfferInfo {
@@ -58,10 +59,12 @@ interface Answers{
 
 export interface SolutionOffers{
   id: number;
-  quotas: SolutionOffer[];
+  name: string;
+  offers: SolutionOffer[];
 }
 
 export interface SolutionOffer{
+  name: string;
   id: number;
   company: Company;
 }
@@ -73,6 +76,7 @@ interface Company{
   annual_savings: number;
   annual_emission_savings: number;
   estimated_payback_time: number;
+  url:string;
   address: Address;
 }
 
@@ -88,7 +92,7 @@ interface Address {
   postal_code: string;
 }
 
-interface Quota {
+interface Offer {
   name: string;
   product: string;
   price: number;
@@ -106,8 +110,9 @@ interface Message {
 
 export interface OfferResponse {
   id: number;
+  name:string;
   company: Company;
-  quota: Quota;
+  offer: Offer;
   messages: Message[];
 }
 
@@ -115,6 +120,8 @@ export interface AppState {
   userData: UserInputInfo;
   calculatedData: CalculatedResponse[];
   offers: HeatingSolutionOffers[];
+  intelligentSummary: string;
+  queryId: number;
 }
 
 export interface Action {

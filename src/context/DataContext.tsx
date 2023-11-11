@@ -17,6 +17,8 @@ const initialState: AppState = {
   },
   calculatedData: [],
   offers: [],
+  intelligentSummary: "",
+  queryId: 0,
 };
 
 export const DataContext = createContext<{
