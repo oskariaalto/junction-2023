@@ -16,7 +16,7 @@ const QuotaTableRow: React.FC<QuotaTableRowProps> = ({ offer }) => {
     navigate(`/offers/${offer.id}`);
   };
   return (
-    <tr className="text-primary cursor-pointer" onClick={handleClick}>
+    <tr className="text-primary cursor-pointer text-lg" onClick={handleClick}>
       <td>{offer.company.name}</td>
       <td>{offer.company.price}</td>
       <td>{offer.company.annual_emission_savings}</td>
@@ -31,19 +31,18 @@ const QuotaTable: React.FC<QuotaTableProps> = ({ solution }) => {
   return (
     <div className="flex justify-center h-screen">
       <div className="card w-5/6 bg-neutral p-3 m-auto flex justify-left">
-        <div className="card-title text-secondary py-4 px-6">{"testi"}</div>
+        <div className="card-title text-secondary py-4 px-6"></div>
         <p className="text-primary px-6 py-0">
-          Here we have concluded the offers we have got form the category{" "}
-          {solution.name}s. You can also access the induvidual offers by
-          clicking them.
+          Here we have concluded the offers we have got form the category. You
+          can also access the induvidual offers by clicking them.
         </p>
         <div className="card-body p-4">
           <table className="table w-full">
-            <thead className="text-secondary">
+            <thead className="text-secondary text-sm">
               <tr>
                 <th>Company</th>
                 <th>Price</th>
-                <th>CO2</th>
+                <th>CO2 Savings</th>
                 <th>Annual Savings</th>
                 <th>Payback time</th>
               </tr>
