@@ -108,7 +108,7 @@ const Calculations = () => {
               </table>
             </div>
             <div className="flex justify-end pr-3">
-              <button className="btn btn-primary shadow-xl" onClick={handleClick}>
+              <button className="btn shadow-xl" onClick={handleClick}>
                 Get quotas
               </button>
             </div>
