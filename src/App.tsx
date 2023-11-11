@@ -3,6 +3,7 @@ import Home from "./components/Home";
 import UserProfile from "./components/UserProfile";
 import Navigation from "./components/Navigation";
 import OfferTable from "./components/Offers";
+import Offer from "./components/Offer";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -65,7 +66,7 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "/quotas",
+        path: "/offers",
         loader: async () => {
           const currentOffers: HeatingSolutionOffers = await getOffers();
           return { currentOffers };
@@ -75,6 +76,20 @@ const router = createBrowserRouter([
             currentOffers: HeatingSolutionOffers[];
           };
           return <OfferTable solution={data.currentOffers[0]} />;
+        },
+      },
+      {
+        path: "/offers/:id",
+        loader: async () => {
+          const currentOffers: HeatingSolutionOffers = await getOffers();
+          console.log(currentOffers);
+          return { currentOffers };
+        },
+        Component() {
+          const data = useLoaderData() as {
+            currentOffers: HeatingSolutionOffers[];
+          };
+          return <Offer offer={data.currentOffers[0].offers[0]} />;
         },
       },
     ],
