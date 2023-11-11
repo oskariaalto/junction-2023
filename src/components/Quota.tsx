@@ -11,13 +11,16 @@ const sampleUserData: UserInputInfo = {
   occupants: 3,
   budget: 10000,
   urgency: 1, // Assuming 1 represents low urgency
+  description: "Mahtava",
 };
 
-interface QuotaTableProps {
+interface CalculationsTableProps {
   calculatedValues: Array<CalculatedInfo>;
 }
 
-const QuotaTable: React.FC<QuotaTableProps> = ({ calculatedValues }) => {
+const CalculationsTable: React.FC<CalculationsTableProps> = ({
+  calculatedValues,
+}) => {
   return (
     <div className="flex p-2 gap-3">
       <div className="w-1/4">
@@ -30,4 +33,4 @@ const QuotaTable: React.FC<QuotaTableProps> = ({ calculatedValues }) => {
   );
 };
 
-export default QuotaTable;
+export default CalculationsTable;
