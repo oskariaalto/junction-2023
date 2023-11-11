@@ -3,6 +3,8 @@ export interface UserInputInfo {
   houseSqm: number;
   currentHeating: string;
   address: string;
+  postalCode: string;
+  city: string;
   occupants: number;
   budget: number;
   urgency: number;
