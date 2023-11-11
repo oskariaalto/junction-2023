@@ -18,7 +18,7 @@ const TableColumn: React.FC<CalculatedColumnProps> = ({
     onCheckboxChange(event.target.checked, index);
   };
   return (
-    <tr>
+    <tr className="text-lg">
       <td>
         <input
           type="checkbox"
@@ -87,7 +87,7 @@ const Calculations = () => {
             <div className="card-body overflow-x-auto px-4 py-4">
               <table className="table w-full text-primary">
                 <thead>
-                  <tr className="text-secondary">
+                  <tr className="text-secondary text-sm">
                     <th>Selected</th>
                     <th>Heating method</th>
                     <th>Average price</th>
