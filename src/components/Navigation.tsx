@@ -10,7 +10,7 @@ const Navigation = () => {
         </Link>
       </div>
       <div className="inline-flex justify-end absolute top-6 left-6 p-6">
-        <Link to="/profile" className="text-secondary"> 
+        <Link to="/" className="text-secondary"> 
           <BsArrowReturnLeft size="28" />
         </Link>
       </div>
