@@ -8,20 +8,27 @@ interface OfferProps {
 const Offer: React.FC<OfferProps> = ({ offer }) => {
   console.log(offer);
   return (
-    <div className="flex justify-center p-2">
-      <div className="card bg-neutral p-2.5 w-5/6">
-        <div className="card-title text-secondary text-2xl">
+    <div className="flex justify-center p-2 h-screen">
+      <div className="p-2.5 w-5/6 m-auto flec justify-left">
+        <div className="text-secondary font-bold text-2xl py-4 px-6">
           Offer from {offer.company}
         </div>
 
-        <div className="flex gap-2 w-full">
+        <div className="flex justify-center gap-2 w-full py-4">
 
-          <div className="card-body flex w-2/5">
-            <p className="text-secondary text-lg">Business info:</p>
-            <div className="card-body">
+          <div className="card bg-neutral justify-left flex w-full">
+            <p className="card-title pt-4 px-6 text-secondary text-lg">Business info:</p>
+            <div className="card-body px-6 pb-6">
 
               <div className="">
                 <p className="text-xs text-secondary">Company</p>
+                <div className=" text-sm text-primary w-full bg-base100 py-1 px-1.5 rounded-xl">
+                  {offer.company}
+                </div>
+              </div>
+
+              <div className="">
+                <p className="text-xs text-secondary">Company webcite</p>
                 <div className=" text-sm text-primary w-full bg-base100 py-1 px-1.5 rounded-xl">
                   {offer.company}
                 </div>
@@ -51,9 +58,9 @@ const Offer: React.FC<OfferProps> = ({ offer }) => {
             </div>
           </div>
 
-          <div className="card-body flex w-2/5">
-            <p className="text-secondary text-lg">Quouta:</p>
-            <div className="card-body">
+          <div className="card bg-neutral flex justify-left w-full">
+            <p className="card-title pt-4 px-6 text-secondary text-lg">Quouta:</p>
+            <div className="card-body px-6 pb-6">
 
               <div className="">
                 <p className="text-xs text-secondary">Price</p>
@@ -102,8 +109,8 @@ const Offer: React.FC<OfferProps> = ({ offer }) => {
 
         </div>
 
-        <div className="card-body flex w-full">
-          <div className=" w-full">
+        <div className="card bg-neutral flex justify-left w-full">
+          <div className="px-6 py-4 w-full">
             <p className="text-secondary text-lg">Sent/recieved messages</p>
           </div>
         </div>

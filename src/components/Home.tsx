@@ -43,10 +43,13 @@ const OfferCard: React.FC<OfferCardProps> = ({ offerInfo }) => {
 const Home: React.FC<HomeComponentProps> = ({ offers }) => {
   const [show, setShow] = useState(false);
   return (
-    <div className="flex">
-      <div className="w-2/3">
+    <div className="flex justify-center h-screen">
+      <div className="w-2/3 m-auto">
         <div className="container mx-auto p-4">
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center text-8xl font-bold m-6">
+            GYP
+          </div>
+          <div className="flex flex-col items-center m-6">
             <h1 className="text-3xl font-bold">Offers</h1>
           </div>
           <div className="flex justify-center">
@@ -66,25 +69,7 @@ const Home: React.FC<HomeComponentProps> = ({ offers }) => {
           </div>
         </div>
       </div>
-      <div className="w-1/4 p-2.5">
-
-        <div className="card collapse-arrow shadow-lg bg-neutral w-full m-6 p-4">
-          <div className="card-title text-secondary w-full flex justify-between">
-            <span className="text-xl">
-              My information
-            </span>
-          </div>
-        </div>
-
-        <div className="card collapse-arrow shadow-lg bg-neutral w-full m-6  p-4">
-          <div className="card-title text-secondary w-full flex justify-between">
-            <span className="text-xl">
-              Explore new options
-            </span>
-          </div>
-        </div>
-
-      </div>
+     
     </div>
   );
 };

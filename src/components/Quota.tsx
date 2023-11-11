@@ -27,11 +27,8 @@ const CalculationsTable: React.FC<CalculationsTableProps> = ({
   const location = useLocation();
   console.log(location.state);
   return (
-    <div className="flex p-2 gap-3">
-      <div className="w-1/4">
-        <UserData userInfo={sampleUserData} />
-      </div>
-      <div className="w-3/4">
+    <div className="flex p-2 gap-3 justify-center h-screen">
+      <div className="w-3/4 m-auto">
         <Calculations calculatedValues={calculatedValues} />
       </div>
     </div>
