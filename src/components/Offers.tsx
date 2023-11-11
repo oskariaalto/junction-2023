@@ -1,22 +1,26 @@
 import React from "react";
-import { HeatingSolutionOffers, OfferInfo } from "../types";
-
+import { SolutionOffers, SolutionOffer } from "../types";
+import { useNavigate } from "react-router-dom";
 interface QuotaTableProps {
-  solution: HeatingSolutionOffers;
+  solution: SolutionOffers;
 }
 
 interface QuotaTableRowProps {
-  offer: OfferInfo;
+  offer: SolutionOffer;
 }
 
 const QuotaTableRow: React.FC<QuotaTableRowProps> = ({ offer }) => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/offers/${offer.id}`);
+  };
   return (
-    <tr className="text-primary ">
-      <td>{offer.company}</td>
-      <td>{offer.price}</td>
-      <td>{offer.CO2Savings}</td>
-      <td>{offer.annualSavings}</td>
-      <td>{offer.paybackTime}</td>
+    <tr className="text-primary cursor-pointer" onClick={handleClick}>
+      <td>{offer.company.name}</td>
+      <td>{offer.company.price}</td>
+      <td>{offer.company.annual_emission_savings}</td>
+      <td>{offer.company.annual_savings}</td>
+      <td>{offer.company.estimated_payback_time}</td>
     </tr>
   );
 };
@@ -26,9 +30,11 @@ const QuotaTable: React.FC<QuotaTableProps> = ({ solution }) => {
   return (
     <div className="flex justify-center h-screen">
       <div className="card w-5/6 bg-neutral p-3 m-auto flex justify-left">
-        <div className="card-title text-secondary py-4 px-6">{solution.name}</div>
+        <div className="card-title text-secondary py-4 px-6">{"testi"}</div>
         <p className="text-primary px-6 py-0">
-          Here we have concluded the offers we have got form the category {solution.name}s. You can also access the induvidual offers by clicking them.
+          Here we have concluded the offers we have got form the category{" "}
+          {"testi"}s. You can also access the induvidual offers by clicking
+          them.
         </p>
         <div className="card-body p-4">
           <table className="table w-full">
@@ -42,8 +48,8 @@ const QuotaTable: React.FC<QuotaTableProps> = ({ solution }) => {
               </tr>
             </thead>
             <tbody>
-              {solution.offers.map((offer) => (
-                <QuotaTableRow key={offer.company} offer={offer} />
+              {solution.quotas.map((offer) => (
+                <QuotaTableRow key={offer.company.name} offer={offer} />
               ))}
             </tbody>
           </table>

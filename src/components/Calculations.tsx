@@ -1,10 +1,7 @@
 import React, { useContext } from "react";
-import { CalculatedInfo, CalculatedResponse } from "../types";
+import { CalculatedResponse } from "../types";
 import { DataContext } from "../context/DataContext";
-
-interface CalculationsProps {
-  calculatedValues: Array<CalculatedInfo>;
-}
+import { Link } from "react-router-dom";
 
 interface CalculatedColumnProps {
   calculatedData: CalculatedResponse;
@@ -43,7 +40,7 @@ const TableColumn: React.FC<CalculatedColumnProps> = ({
   );
 };
 
-const Calculations: React.FC<CalculationsProps> = () => {
+const Calculations = () => {
   const { state, dispatch } = useContext(DataContext);
   //console.log(state.calculatedData);
   const handleCheckboxChange = (isChecked: boolean, index: number) => {
@@ -56,13 +53,16 @@ const Calculations: React.FC<CalculationsProps> = () => {
 
   return (
     <div className="card w-full bg-neutral p-2 flex justify-center shadow-md">
-      <p className="card-title text-secondary text-2xl px-4 py-4">Calculations</p>
+      <p className="card-title text-secondary text-2xl px-4 py-4">
+        Calculations
+      </p>
       <p className="text-primary px-4 py-0">
-          Here you can find different options to enhance the energy performance of your house compared. 
-          The estimates are calculated based on the facts you have provided. You can check and modify your information on your profile.
+        Here you can find different options to enhance the energy performance of
+        your house compared. The estimates are calculated based on the facts you
+        have provided. You can check and modify your information on your
+        profile.
       </p>
       <div className="card-body overflow-x-auto px-4 py-4">
-        
         <table className="table w-full text-primary">
           <thead>
             <tr className="text-secondary">
@@ -86,9 +86,9 @@ const Calculations: React.FC<CalculationsProps> = () => {
         </table>
       </div>
       <div className="flex justify-end pr-3">
-        <button className="btn btn-primary" onClick={handleClick}>
+        <Link to="/" className="btn btn-primary" onClick={handleClick}>
           Get quotas
-        </button>
+        </Link>
       </div>
     </div>
   );

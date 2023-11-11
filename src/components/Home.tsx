@@ -1,6 +1,6 @@
-import UserProfile from "./UserProfile";
 import React, { useState } from "react";
 import { HeatingSolutionOffers } from "../types";
+import { Link } from "react-router-dom";
 
 interface OfferCardProps {
   offerInfo: HeatingSolutionOffers;
@@ -12,16 +12,18 @@ interface HomeComponentProps {
 
 const OfferCard: React.FC<OfferCardProps> = ({ offerInfo }) => {
   return (
-    <div className="card collapse-arrow shadow-lg bg-neutral w-full p-3">
-      <div className="card-title text-secondary w-full flex justify-between">
-        <span className="text-xl">{offerInfo.name}</span>
-        <span className="text-xl">
-          {offerInfo.offers.filter((offer) => offer.received).length}
-          {" / "}
-          {offerInfo.offers.length}
-        </span>
+    <Link to={`offers/${offerInfo.id}/outstanding`} className="w-full">
+      <div className="card collapse-arrow shadow-lg bg-neutral w-full p-3">
+        <div className="card-title text-secondary w-full flex justify-between">
+          <span className="text-xl">{offerInfo.company_name}</span>
+          <span className="text-xl">
+            {offerInfo.answers.answered}
+            {" / "}
+            {offerInfo.answers.total}
+          </span>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -37,20 +39,19 @@ const Home: React.FC<HomeComponentProps> = ({ offers }) => {
           <div className="flex flex-col items-center m-6">
             <h1 className="text-3xl font-bold">Offers</h1>
           </div>
-          <div className="flex justify-center">
-            {offers.map((offer, index) => (
-              <OfferCard key={index} offerInfo={offer} />
-            ))}
-          </div>
+          {offers.map((offer, index) => (
+            <div key={index} className="flex justify-center p-2">
+              <OfferCard offerInfo={offer} />
+            </div>
+          ))}
           <div className="container mx-auto p-4 flex flex-col items-center">
-            {!show && (
-              <button
-                className="btn btn-secondary"
-                onClick={() => setShow(!show)}
-              >
-                New Offer
-              </button>
-            )}
+            <Link
+              to="/newoffer"
+              className="btn btn-secondary"
+              onClick={() => setShow(!show)}
+            >
+              New Offer
+            </Link>
           </div>
         </div>
       </div>
