@@ -8,11 +8,11 @@ export const getHeatingOffers = async () => {
 }
 
 export const getOffers  = async (params:string) => {
-  const response  = await axios.get(`${baseUrl}/quotas/${params}/outstanding`)
+  const response  = await axios.get(`${baseUrl}/offers/${params}/outstanding`)
   return response.data.data
 }
 
 export const getOffer = async (params:string) => {
-  const response  = await axios.get(`${baseUrl}/quotas/${params}`)
+  const response  = await axios.get(`${baseUrl}/offers/${params}`)
   return response.data
 }

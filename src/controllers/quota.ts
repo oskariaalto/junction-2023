@@ -38,3 +38,19 @@ export const createQuerie = async (data: UserInputInfo) => {
     console.log(error)
   }
 }
+
+
+export const updateSeletedUnits = async (id:number, selected:Array<number>) => {
+  const body  = {
+    id : id,
+    selected: selected
+  }
+  try{
+    const response = await axios.post(`${baseUrl}/queries/${id}/update_selected_heating_units`, body)
+    //console.log(response)
+    return response.data
+  }
+  catch(error){
+    console.log(error)
+  }
+}

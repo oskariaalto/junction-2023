@@ -4,6 +4,7 @@ import UserProfile from "./components/UserProfile";
 import Navigation from "./components/Navigation";
 import OfferTable from "./components/Offers";
 import Offer from "./components/Offer";
+import LoadingSpinner from "./components/LoadingSpinner";
 import { DataProvider } from "./context/DataContext";
 import {
   createBrowserRouter,
@@ -113,7 +114,7 @@ const App = () => {
       className="bg-gradient-to-r from-green-200 to-green-400 min-h-screen"
     >
       <DataProvider>
-        <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
+        <RouterProvider router={router} fallbackElement={<LoadingSpinner />} />
       </DataProvider>
     </div>
   );

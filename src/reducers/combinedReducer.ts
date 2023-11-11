@@ -27,6 +27,10 @@ export const combinedReducer = (state: AppState, action: Action): AppState => {
       } else{
         return state;
       }
+    case "ADD_INTELLIGENT_SUMMARY":
+      return { ...state, intelligentSummary: action.payload.strValue || "" };
+    case "SET_Query_ID":
+      return { ...state, queryId: action.payload.numValue || 0 };
     default:
       return state;
   }

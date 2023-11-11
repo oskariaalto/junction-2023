@@ -11,6 +11,7 @@ interface QuotaTableRowProps {
 
 const QuotaTableRow: React.FC<QuotaTableRowProps> = ({ offer }) => {
   const navigate = useNavigate();
+  console.log(offer);
   const handleClick = () => {
     navigate(`/offers/${offer.id}`);
   };
@@ -33,8 +34,8 @@ const QuotaTable: React.FC<QuotaTableProps> = ({ solution }) => {
         <div className="card-title text-secondary py-4 px-6">{"testi"}</div>
         <p className="text-primary px-6 py-0">
           Here we have concluded the offers we have got form the category{" "}
-          {"testi"}s. You can also access the induvidual offers by clicking
-          them.
+          {solution.name}s. You can also access the induvidual offers by
+          clicking them.
         </p>
         <div className="card-body p-4">
           <table className="table w-full">
@@ -48,7 +49,7 @@ const QuotaTable: React.FC<QuotaTableProps> = ({ solution }) => {
               </tr>
             </thead>
             <tbody>
-              {solution.quotas.map((offer) => (
+              {solution.offers.map((offer) => (
                 <QuotaTableRow key={offer.company.name} offer={offer} />
               ))}
             </tbody>

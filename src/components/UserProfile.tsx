@@ -11,18 +11,28 @@ interface UserDataProps {
 const UserProfile: React.FC<UserDataProps> = ({ showSubmitButton }) => {
   const { state, dispatch } = useContext(DataContext);
   const handleSubmission = async () => {
+    dispatch({
+      type: "SET_CALCULATED_DATA",
+      payload: { calculatedData: [] },
+    });
     const response = await createQuerie(state.userData);
     const query = response.query;
-    console.log(query);
     const data = query.summary.data.map((sum: CalculatedResponse) => ({
       ...sum,
       price: 1000,
       selected: false,
     }));
-    console.log(data);
     dispatch({
       type: "SET_CALCULATED_DATA",
       payload: { calculatedData: data },
+    });
+    dispatch({
+      type: "ADD_INTELLIGENT_SUMMARY",
+      payload: { strValue: query.summary.intelligent_summary },
+    });
+    dispatch({
+      type: "SET_Query_ID",
+      payload: { numValue: query.id },
     });
     //console.log(state.calculatedData);
   };
