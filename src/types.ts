@@ -2,7 +2,7 @@ export interface UserInputInfo {
   name: string;
   houseSqm: number;
   currentHeating: string;
-  address: string;
+  street: string;
   postalCode: string;
   city: string;
   occupants: number;
@@ -40,3 +40,20 @@ export interface HeatingSolutionOffers {
   offers: OfferInfo[];
 }
 
+export interface AppState {
+  userData: UserInputInfo;
+  calculatedData: CalculatedInfo[];
+  offers: HeatingSolutionOffers[];
+}
+
+export interface Action {
+  type: string;
+  payload: Payload;
+}
+
+export interface Payload {
+  type?: string;
+  numValue?: number;
+  strValue?: string;
+  calculatedData?: CalculatedInfo[];
+}
