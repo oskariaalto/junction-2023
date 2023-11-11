@@ -40,14 +40,15 @@ const UserProfile: React.FC<UserDataProps> = ({
     });
   };
   return (
-    <div className="pt-3">
+    <div className="min-h-screen flex items-center justify-center">
+    <div className="w-1/3 items-center">
       <div className="card bg-neutral w-full p-2">
-        <h1 className="card-title text-accent text-xl p-3 flex justify-center">
+        <h1 className="card-title text-accent text-3xl p-3 flex justify-center">
           {state.userData.name || "John Doe"}
         </h1>
         <div className="card-body">
-          <div className="">
-            <p className="text-xs text-secondary">Address</p>
+          <div className="mx-auto w-full">
+            <p className="text-3xs text-secondary">Address</p>
             <input
               type="text"
               placeholder="Your address"
@@ -62,9 +63,9 @@ const UserProfile: React.FC<UserDataProps> = ({
               }
             />
           </div>
-          <div className="flex gap-2 w-full">
+          <div className="flex gap-2 justify-center">
             <div className="">
-              <p className="text-xs text-secondary">Postal code</p>
+              <p className="text-3xs text-secondary">Postal code</p>
               <input
                 type="text"
                 placeholder="Postal code"
@@ -80,7 +81,7 @@ const UserProfile: React.FC<UserDataProps> = ({
               />
             </div>
             <div className="">
-              <p className="text-xs text-secondary">City</p>
+              <p className="text-3xs text-secondary">City</p>
               <input
                 type="text"
                 placeholder="City"
@@ -96,12 +97,12 @@ const UserProfile: React.FC<UserDataProps> = ({
               />
             </div>
           </div>
-          <div className="flex gap-2 w-full">
+          <div className="flex gap-2 w-full justify-center">
             <div className="">
-              <p className="text-xs text-secondary">Floor surface area (sqm)</p>
+              <p className="text-3xs text-secondary">Floor surface area</p>
               <input
                 type="number"
-                placeholder="Your floor surface area (sqm)"
+                placeholder="(sqm)"
                 className="input input-xs text-sm text-primary w-full"
                 value={
                   state.userData.houseSqm === 0 ? "" : state.userData.houseSqm
@@ -116,7 +117,7 @@ const UserProfile: React.FC<UserDataProps> = ({
               />
             </div>
             <div className="">
-              <p className="text-xs text-secondary">Occupants</p>
+              <p className="text-2xs text-secondary">Occupants</p>
               <input
                 type="number"
                 placeholder="Number of occupants"
@@ -135,9 +136,9 @@ const UserProfile: React.FC<UserDataProps> = ({
             </div>
           </div>
 
-          <div className="flex gap-2 w-full">
+          <div className="flex gap-2 w-full justify-center">
             <div className="">
-              <p className="text-xs text-secondary">Budget</p>
+              <p className="text-2xs text-secondary">Budget</p>
               <input
                 type="number"
                 placeholder="Budget"
@@ -153,7 +154,7 @@ const UserProfile: React.FC<UserDataProps> = ({
               />
             </div>
             <div className="">
-              <p className="text-xs text-secondary">Timeframe</p>
+              <p className="text-2xs text-secondary">Timeframe</p>
               <input
                 type="text"
                 placeholder="The timeframe for the project"
@@ -170,8 +171,8 @@ const UserProfile: React.FC<UserDataProps> = ({
             </div>
           </div>
 
-          <div className="block">
-            <p className="text-xs text-secondary">Current heating solution</p>
+          <div className="block mx-auto w-full">
+            <p className="text-2xs text-secondary">Current heating solution</p>
             <select
               className="select select-xs text-primary w-full"
               value={state.userData.currentHeating}
@@ -192,8 +193,8 @@ const UserProfile: React.FC<UserDataProps> = ({
             </select>
           </div>
 
-          <div className="block">
-            <p className="text-xs text-secondary">Description</p>
+          <div className="block mx-auto w-full">
+            <p className="text-2xs text-secondary">Description</p>
             <textarea
               placeholder="Describe your house and your needs"
               className="input input-xs text-sm text-primary w-full h-24 p-2"
@@ -221,6 +222,7 @@ const UserProfile: React.FC<UserDataProps> = ({
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 };
