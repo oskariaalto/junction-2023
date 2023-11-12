@@ -8,7 +8,7 @@ const Navigation = () => {
     <>
       <Link
         to="/profile"
-        className="text-secondary inline-flex justify-end absolute bottom-6 right-6 rounded-full bg-white p-6"
+        className="text-secondary inline-flex justify-end absolute bottom-6 right-3 rounded-full bg-white p-6"
       >
         <BsPerson size="28" />
       </Link>

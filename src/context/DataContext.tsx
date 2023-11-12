@@ -4,16 +4,17 @@ import { AppState, Action } from "../types";
 
 const initialState: AppState = {
   userData: {
-    name: "moi",
-    houseSqm: 10,
+    name: "John Doe",
+    houseSqm: 100,
     currentHeating: "oil",
-    street: "pikkukatu 1",
+    street: "Mannerheimintie 2",
     postalCode: "12345",
-    city: "Espoo",
-    occupants: 2,
-    budget: 2000,
+    city: "Helsinki",
+    occupants: 4,
+    budget: 20000,
     urgency: 2,
-    description: "Mahtava pikku kämppä",
+    description:
+      "I want to save money and the environment by switching to geothermal heating. I have a 100m2 house with 4 occupants and the house is 50 year old.",
   },
   calculatedData: [],
   offers: [],
