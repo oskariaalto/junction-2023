@@ -56,15 +56,15 @@ const UserProfile: React.FC<UserDataProps> = ({ showSubmitButton }) => {
       <div className="w-1/3 items-center">
         <div className="card bg-neutral w-full p-2 shadow-xl">
           <h1 className="card-title text-secondary font-bold text-3xl px-6 pt-4 flex justify-center">
-            Input your data
+            Tell about your need!
           </h1>
           <div className="card-body px-4 pb-4">
             <div className="w-full">
-              <p className="text-3xs text-secondary">Address</p>
+              <p className="text-2xs text-secondary">Address</p>
               <input
                 type="text"
                 placeholder="Your address"
-                className="input input-xs text-sm text-primary w-full shadow-sm"
+                className="input input-xs text-base text-primary w-full shadow-md py-4 px-2 bg-neutral mt-1 mb-2 border-2 border-secondary"
                 value={state.userData.street}
                 onChange={(e) =>
                   handleChange(
@@ -77,11 +77,11 @@ const UserProfile: React.FC<UserDataProps> = ({ showSubmitButton }) => {
             </div>
             <div className="flex gap-2 justify-center">
               <div className="w-full">
-                <p className="text-3xs text-secondary">Postal code</p>
+                <p className="text-2xs text-secondary">Postal code</p>
                 <input
                   type="text"
                   placeholder="Postal code"
-                  className="input input-xs text-sm text-primary w-full shadow-sm"
+                  className="input input-xs text-base text-primary w-full shadow-md py-4 px-2 bg-neutral mt-1 mb-2 border-2 border-secondary"
                   value={state.userData.postalCode}
                   onChange={(e) =>
                     handleChange(
@@ -93,11 +93,11 @@ const UserProfile: React.FC<UserDataProps> = ({ showSubmitButton }) => {
                 />
               </div>
               <div className="w-full">
-                <p className="text-3xs text-secondary">City</p>
+                <p className="text-2xs text-secondary">City</p>
                 <input
                   type="text"
                   placeholder="City"
-                  className="input input-xs text-sm text-primary w-full shadow-sm"
+                  className="input input-xs text-base text-primary w-full shadow-md py-4 px-2 bg-neutral mt-1 mb-2 border-2 border-secondary"
                   value={state.userData.city}
                   onChange={(e) =>
                     handleChange(
@@ -111,11 +111,11 @@ const UserProfile: React.FC<UserDataProps> = ({ showSubmitButton }) => {
             </div>
             <div className="flex gap-2 w-full justify-center">
               <div className="w-full">
-                <p className="text-3xs text-secondary">Floor surface area</p>
+                <p className="text-2xs text-secondary">Floor surface area</p>
                 <input
                   type="number"
                   placeholder="(sqm)"
-                  className="input input-xs text-sm text-primary w-full shadow-sm"
+                  className="input input-xs text-base text-primary w-full shadow-md py-4 px-2 bg-neutral mt-1 mb-2 border-2 border-secondary"
                   value={
                     state.userData.houseSqm === 0 ? "" : state.userData.houseSqm
                   }
@@ -133,7 +133,7 @@ const UserProfile: React.FC<UserDataProps> = ({ showSubmitButton }) => {
                 <input
                   type="number"
                   placeholder="Number of occupants"
-                  className="input input-xs text-sm text-primary w-full shadow-sm"
+                  className="input input-xs text-base text-primary w-full shadow-md py-4 px-2 bg-neutral mt-1 mb-2 border-2 border-secondary"
                   value={
                     state.userData.occupants === 0
                       ? ""
@@ -156,7 +156,7 @@ const UserProfile: React.FC<UserDataProps> = ({ showSubmitButton }) => {
                 <input
                   type="number"
                   placeholder="Budget"
-                  className="input input-xs text-sm text-primary w-full shadow-sm"
+                  className="input input-xs text-base text-primary w-full shadow-md py-4 px-2 bg-neutral mt-1 mb-2 border-2 border-secondary"
                   value={
                     state.userData.budget === 0 ? "" : state.userData.budget
                   }
@@ -174,7 +174,7 @@ const UserProfile: React.FC<UserDataProps> = ({ showSubmitButton }) => {
                 <input
                   type="text"
                   placeholder="The timeframe for the project"
-                  className="input input-xs text-sm text-primary w-full shadow-sm"
+                  className="input input-xs text-base text-primary w-full shadow-md py-4 px-2 bg-neutral mt-1 mb-2 border-2 border-secondary"
                   value={state.userData.urgency}
                   onChange={(e) =>
                     handleChange(
@@ -192,7 +192,7 @@ const UserProfile: React.FC<UserDataProps> = ({ showSubmitButton }) => {
                 Current heating solution
               </p>
               <select
-                className="select select-xs text-primary w-full shadow-sm"
+                className="select select-md text-primary w-full shadow-md bg-neutral mt-1 mb-2 border-2 border-secondary"
                 value={state.userData.currentHeating}
                 onChange={(e) =>
                   handleChange(
@@ -212,10 +212,12 @@ const UserProfile: React.FC<UserDataProps> = ({ showSubmitButton }) => {
             </div>
 
             <div className="block mx-auto w-full">
-              <p className="text-2xs text-secondary">Description</p>
+              <p className="text-2xs text-secondary">
+                Description
+              </p>
               <textarea
                 placeholder="Describe your house and your needs"
-                className="input input-xs text-sm text-primary w-full h-24 p-2 shadow-sm"
+                className="input input-xs text-sm text-primary w-full h-24 p-2 shadow-sm bg-neutral mt-1 mb-2 border-2 border-secondary"
                 value={state.userData.description}
                 onChange={(e) =>
                   handleChange(
@@ -231,7 +233,7 @@ const UserProfile: React.FC<UserDataProps> = ({ showSubmitButton }) => {
             <div className="card-actions flex justify-center">
               <Link
                 to="/newoffer/calculations"
-                className="btn btn-wide shadow-sm"
+                className="btn btn-secondary"
                 onClick={handleSubmission}
               >
                 Save new offer
