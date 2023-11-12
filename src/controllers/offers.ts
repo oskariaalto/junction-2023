@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://65.108.240.77/api/v1"
+const baseUrl = "https://ai-bert-backend-qrwoug6p3q-lz.a.run.app/api/v1"
 
 export const getHeatingOffers = async () => {
   const response  = await axios.get(baseUrl+'/home')
