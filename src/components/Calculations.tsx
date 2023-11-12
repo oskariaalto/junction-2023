@@ -34,7 +34,7 @@ const TableColumn: React.FC<CalculatedColumnProps> = ({
           ? "Geothermal Heat"
           : "Water Heat Pump"}
       </td>
-      <td>{calculatedData.price} €</td>
+      <td>{calculatedData.average_price} €</td>
       <td>{calculatedData.total_savings} €/y</td>
       <td>{calculatedData.total_co2_reduction} CO<sub>2</sub>/y</td>
     </tr>

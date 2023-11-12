@@ -26,6 +26,7 @@ name: string;
 roi: number;
 total_co2_reduction: number;
 total_savings: number;
+average_price: number;
 price: number;
 selected:boolean;
 id: number;
