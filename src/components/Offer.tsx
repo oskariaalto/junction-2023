@@ -51,8 +51,8 @@ const Offer: React.FC<OfferProps> = ({ offer }) => {
                   </p>
                   <div className="text-primary">
                     We are offering you a {offer.offer.product} for just{" "}
-                    {offer.offer.price}! This is a 1000 kWh heat pump, will be
-                    profitable in just {offer.offer.estimated_payback_time}{" "}
+                    {offer.offer.price}! The offered geothermal heat pump, will
+                    be profitable in just {offer.offer.estimated_payback_time}{" "}
                     years!
                   </div>
                 </div>

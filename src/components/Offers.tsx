@@ -146,14 +146,16 @@ const QuotaTable: React.FC<QuotaTableProps> = ({ solution }) => {
 
         <p className="text-primary pt-4">
           Here we have the comparison of geothermal heating contractors, each
-          with distinct offerings: Junction Ltd. balances a mid-range price with
-          the highest CO2 savings, boasting a swift 3.5-year payback. SolarTech
-          Inc. demands a premium but compensates with significant annual
-          savings. Meanwhile, Renewable Energy Co. emerges as the most
-          economical with the shortest payback period, and Green Energy
-          Solutions, along with EcoPower Solutions, offer cost-effective
-          solutions with moderate payback times, underscoring a commitment to
-          both economy and ecology.
+          with distinct offerings: Junction Ltd. offers a balanced approach with
+          a competitive price and commendable CO2 savings, featuring a
+          reasonable payback period under six years. Green Energy Solutions
+          commands a higher price but provides substantial annual savings and a
+          rapid five-year payback, emphasizing efficiency. SolarTech Inc. sets a
+          higher price point yet justifies it with top-tier annual savings,
+          resulting in a longer payback time. Lastly, EcoPower Solutions
+          proposes a more affordable option in terms of CO2 savings with the
+          longest payback duration, highlighting a strategic focus on long-term
+          ecological and economic benefits.
         </p>
         <div className="card-body p-0 pt-2">
           <table className="table w-full">
