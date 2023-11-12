@@ -69,11 +69,11 @@ const QuotaTableRow: React.FC<QuotaTableRowProps> = ({ offer, bestPrice, bestEmi
   };
   return (
     <tr className="text-black cursor-pointer text-lg" onClick={handleClick}>
-      <td className="flex-inline flex-row items-center gap-2">{offer.company.name}</td>
-      <td className="flex-inline flex-row items-center gap-2">{offer.company.price} € {bestPrice && <FaStar className="inline text-[#FFDF00]" />}</td>
-      <td className="flex-inline flex-row items-center gap-2">{offer.company.annual_emission_savings} CO<sub>2</sub> kg/y {bestEmissionSavings && <FaStar className="inline text-[#FFDF00]" />}</td>
-      <td className="flex-inline flex-row items-center gap-2">{offer.company.annual_savings} € {bestAnnualSavings && <FaStar className="inline text-[#FFDF00]" />}</td>
-      <td className="flex-inline flex-row items-center gap-2">{offer.company.estimated_payback_time} y {bestPaybackTime && <FaStar className="inline text-[#FFDF00]" />}</td>
+      <td><span className="inline-flex flex-row items-center gap-2">{offer.company.name}</span></td>
+      <td><span className="inline-flex flex-row items-center gap-2">{offer.company.price} € {bestPrice && <FaStar className="inline text-[#FFDF00]" />}</span></td>
+      <td><span className="inline-flex flex-row items-center gap-2">{offer.company.annual_emission_savings} CO<sub>2</sub> kg/y {bestEmissionSavings && <FaStar className="inline text-[#FFDF00]" />}</span></td>
+      <td><span className="inline-flex flex-row items-center gap-2">{offer.company.annual_savings} € {bestAnnualSavings && <FaStar className="inline text-[#FFDF00]" />}</span></td>
+      <td><span className="inline-flex flex-row items-center gap-2">{offer.company.estimated_payback_time} y {bestPaybackTime && <FaStar className="inline text-[#FFDF00]" />}</span></td>
     </tr>
   );
 };
