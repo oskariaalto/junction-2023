@@ -150,8 +150,8 @@ const QuotaTable: React.FC<QuotaTableProps> = ({ solution }) => {
   );
 
   return (
-    <div className="flex justify-center h-screen">
-      <div className="card w-5/6 bg-neutral p-3 m-auto flex justify-left ">
+    <div className="flex justify-center min-h-screen py-6">
+      <div className="card w-5/6 bg-neutral p-3 m-auto flex justify-left">
         <div className="card-title text-secondary text-5xl">Geothermal.</div>
 
         <p className="text-primary pt-4">

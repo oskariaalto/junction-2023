@@ -29,7 +29,7 @@ const Offer: React.FC<OfferProps> = ({ offer }) => {
               <div className="relative flex items-center flex-col mr-8">
                 <img
                   className="w-52 h-52 rounded-full shadow-xl"
-                  src={"/src/assets/photo.png"}
+                  src={"/photo.png"}
                 />
                 <div className="text-3xl py-1 bolded">
                   {company.contact_person.name}
