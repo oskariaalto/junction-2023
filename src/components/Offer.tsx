@@ -8,7 +8,7 @@ interface OfferProps {
 const Offer: React.FC<OfferProps> = ({ offer }) => {
   const [messagesAreOpen, setMessagesAreOpen] = React.useState<boolean>(false);
 
-  // console.log(offer);
+  console.log(offer);
   const company = offer.company;
   const messages = offer.messages;
   return (
@@ -30,15 +30,30 @@ const Offer: React.FC<OfferProps> = ({ offer }) => {
                 <img
                   className="w-52 h-52 rounded-full shadow-xl"
                   src={"/src/assets/photo.png"}
-                  />
-                <div className="text-3xl py-1 bolded">{company.contact_person.name}</div>
+                />
+                <div className="text-3xl py-1 bolded">
+                  {company.contact_person.name}
+                </div>
                 <div className="">{company.contact_person.email}</div>
                 <div className="">{company.contact_person.phone}</div>
 
-                <div className="absolute top-36 -left-[420px] w-96 h-32 bg-white p-4 rounded-xl rounded-tr-none shadow-xl" style={{ transform: 'rotate(-2deg)', transformOrigin: "top right" }}> {/* Adjust positioning as needed */}
-                  <p className="text-secondary text-xl">"Here's our fantastic offer!"</p>
+                <div
+                  className="absolute top-36 -left-[420px] w-96 h-32 bg-white p-4 rounded-xl rounded-tr-none shadow-xl"
+                  style={{
+                    transform: "rotate(-2deg)",
+                    transformOrigin: "top right",
+                  }}
+                >
+                  {" "}
+                  {/* Adjust positioning as needed */}
+                  <p className="text-secondary text-xl">
+                    "Here's our fantastic offer!"
+                  </p>
                   <div className="text-primary">
-                    We are offering you a {offer.offer.product} for just {offer.offer.price}! This is a 1000 kWh heat pump, will be profitable in just {offer.offer.estimated_payback_time} years!
+                    We are offering you a {offer.offer.product} for just{" "}
+                    {offer.offer.price}! This is a 1000 kWh heat pump, will be
+                    profitable in just {offer.offer.estimated_payback_time}{" "}
+                    years!
                   </div>
                 </div>
               </div>
@@ -47,7 +62,7 @@ const Offer: React.FC<OfferProps> = ({ offer }) => {
               <button
                 className="px-2 py-1 rounded-full border-2 border-primary text-black hover:border-black"
                 onClick={() => setMessagesAreOpen(!messagesAreOpen)}
-                >
+              >
                 {messagesAreOpen ? "CLOSE" : "OPEN"} MESSAGES
               </button>
             </div>
@@ -74,7 +89,9 @@ const Offer: React.FC<OfferProps> = ({ offer }) => {
                         <p className="font-bold text-secondary text-sm">
                           {message.user}
                         </p>
-                        <p className="text-xs text-primary">{message.message}</p>
+                        <p className="text-xs text-primary">
+                          {message.message}
+                        </p>
                         {/* Include timestamp if available */}
                         {/* <p className="text-xs text-gray-600">Time: {message.timestamp}</p> */}
                       </div>
@@ -82,8 +99,8 @@ const Offer: React.FC<OfferProps> = ({ offer }) => {
                   ))}
                 </div>
               </div>
-              )}
-            </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

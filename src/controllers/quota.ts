@@ -1,7 +1,7 @@
 import axios from "axios";
 import { UserInputInfo } from "../types";
 
-const baseUrl = "http://65.108.240.77/api/v1"
+const baseUrl = "https://ai-bert-backend-qrwoug6p3q-lz.a.run.app/api/v1"
 
 export const getCalculatedValues = async () => {
   const url = "http://localhost:3001/calculatedInfo"

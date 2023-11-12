@@ -50,7 +50,7 @@ const QuotasGraph: React.FC<QuotaTableProps> = ({ solution }) => {
   const data = Array.from({ length: maxTimeToBreakEven + 1 }, (_, i) => {
     const dataPoint: Record<string, number> = { time: i };
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    for (const [offerName, offerDetails] of Object.entries(solution.offers)) {
+    for (const [_, offerDetails] of Object.entries(solution.offers)) {
       dataPoint[offerDetails.company.name] =
         offerDetails.company.annual_savings * i - offerDetails.company.price;
     }
@@ -96,7 +96,7 @@ const QuotaTableRow: React.FC<QuotaTableRowProps> = ({
   bestPaybackTime,
 }) => {
   const navigate = useNavigate();
-  console.log(offer);
+  //console.log(offer);
   const handleClick = () => {
     navigate(`/offers/${offer.id}`);
   };
@@ -140,8 +140,8 @@ const QuotaTable: React.FC<QuotaTableProps> = ({ solution }) => {
   );
 
   return (
-    <div className="flex justify-center h-screen">
-      <div className="card w-5/6 bg-neutral p-3 m-auto flex justify-left p-6">
+    <div className="flex justify-center h-max">
+      <div className="card w-5/6 bg-neutral p-3 m-auto flex justify-left ">
         <div className="card-title text-secondary text-5xl">Geothermal.</div>
 
         <p className="text-primary pt-4">
