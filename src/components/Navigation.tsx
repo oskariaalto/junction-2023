@@ -3,6 +3,7 @@ import { BsPerson, BsArrowReturnLeft } from "react-icons/bs";
 
 const Navigation = () => {
   const navigate = useNavigate();
+
   return (
     <>
       <Link
@@ -11,11 +12,14 @@ const Navigation = () => {
       >
         <BsPerson size="28" />
       </Link>
-      <div className="inline-flex justify-end absolute top-6 left-6 p-6">
-        <button className="text-secondary" onClick={() => navigate(-1)}>
-          <BsArrowReturnLeft size="28" />
-        </button>
-      </div>
+
+      {window.location.pathname !== "/" && (
+        <div className="inline-flex justify-end absolute top-6 left-6 p-6">
+          <button className="text-secondary" onClick={() => navigate(-1)}>
+            <BsArrowReturnLeft size="28" />
+          </button>
+        </div>
+      )}
     </>
     // <nav className="navbar bg-neutral text-neutral-content ">
     //   <div className="flex w-full px-3">

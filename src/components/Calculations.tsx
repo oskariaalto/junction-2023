@@ -18,7 +18,7 @@ const TableColumn: React.FC<CalculatedColumnProps> = ({
     onCheckboxChange(event.target.checked, index);
   };
   return (
-    <tr className="text-lg">
+    <tr className="text-base">
       <td>
         <input
           type="checkbox"
@@ -34,9 +34,9 @@ const TableColumn: React.FC<CalculatedColumnProps> = ({
           ? "Geothermal Heat"
           : "Water Heat Pump"}
       </td>
-      <td>{calculatedData.price}</td>
-      <td>{calculatedData.total_savings}</td>
-      <td>{calculatedData.total_co2_reduction}</td>
+      <td>{calculatedData.price} €</td>
+      <td>{calculatedData.total_savings} €/y</td>
+      <td>{calculatedData.total_co2_reduction} CO<sub>2</sub>/y</td>
     </tr>
   );
 };
@@ -65,12 +65,12 @@ const Calculations = () => {
   };
 
   return (
-    <div className="card w-full bg-neutral p-2 flex justify-center shadow-md">
-      <p className="card-title text-secondary text-2xl px-4 py-4">
-        Calculations
-      </p>
+    <div className="card w-full bg-neutral flex justify-center shadow-md p-6">
+      <div className="card-title text-secondary text-5xl">
+        Calculations.
+      </div>
       {state.calculatedData.length !== 0 && (
-        <p className="text-primary px-4 py-0">
+        <p className="text-primary pt-4">
           {summary.length > 0
             ? summary
             : "Here you can find different options to enhance the energy performance of your house compared. The estimates are calculated based on the facts you have provided."}{" "}
@@ -84,15 +84,15 @@ const Calculations = () => {
           </div>
         ) : (
           <>
-            <div className="card-body overflow-x-auto px-4 py-4">
+            <div className="card-body overflow-x-auto py-4 px-0">
               <table className="table w-full text-primary">
                 <thead>
-                  <tr className="text-secondary text-sm">
+                  <tr className="text-secondary text-base">
                     <th>Selected</th>
                     <th>Heating method</th>
                     <th>Average price</th>
                     <th>Annual cost savings</th>
-                    <th>Annual CO2 emissions savings</th>
+                    <th>Annual CO<sub>2</sub> emissions savings</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -107,8 +107,8 @@ const Calculations = () => {
                 </tbody>
               </table>
             </div>
-            <div className="flex justify-end pr-3">
-              <button className="btn shadow-xl" onClick={handleClick}>
+            <div className="flex justify-center">
+              <button className="btn btn-secondary" onClick={handleClick}>
                 Get quotas
               </button>
             </div>
